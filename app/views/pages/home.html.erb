@@ -1,1 +1,19 @@
-<h1>Estamos na home</h1>
+
+<% if user_signed_in? %>
+    
+    <h1>Olá, <%= current_user.email %></h1>
+    <%= link_to 'sair', destroy_user_session_path, class:"button red leave", method: :delete %>
+    <div class="new-tweet">
+        <%= form_for @tweet do |form| %>
+            <%= form.text_area :content, class:"new-tweet", placeholder: "Digite o seu tweet" %>
+            <%= form.submit "Criar Tweet", :class=>"button blue new-tweet" %>
+        <% end %>
+    </div>
+    <% current_user.tweets.each do |tweet| %>
+        <div class="tweet">
+            <%= tweet.content %>
+        </div>
+    <% end %>
+<% else %>
+    <%= link_to 'clique aqui para logar', new_user_session_path, class:"button blue" %>
+<% end %>

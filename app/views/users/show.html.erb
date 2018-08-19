@@ -1,0 +1,13 @@
+<h1><%= @user.email %></h1>
+<%= @user.followers.count %> seguidores <br/>
+Seguindo <%= @user.followeds.count %>
+<% if @user.tweets.empty? %>
+    <span class="empty">O usuário não possui tweets</span>
+<% else %>
+    <% @user.tweets.each do |tweet| %>
+        <div class="tweet">
+            <%= tweet.content %>
+        </div>
+    <% end %>
+<% end %>
+

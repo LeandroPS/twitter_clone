@@ -12,14 +12,17 @@
   <body>
     <header>
       <div class="notifications">
-        <p class="notice"> <%= notice %></p>
-        <p class="alert"> <%= alert %></p>
+        <div class="container">
+          <p class="notice"> <%= notice %></p>
+          <p class="alert"> <%= alert %></p>
+        </div>
       </div>
     </header>
     <section>
-
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     </section>
-    <footer>Feito no Bootcamp</footer>
+    <footer class="made-by">Feito no Bootcamp</footer>
   </body>
 </html>
